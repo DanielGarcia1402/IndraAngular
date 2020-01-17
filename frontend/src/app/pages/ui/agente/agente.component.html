@@ -1,0 +1,96 @@
+<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone">
+<base-card>
+  <base-card-title>
+    <h2>Formulario de Agentes</h2>
+  </base-card-title>
+  <base-card-body class="form">
+      <div class="form__article">
+        <h3>Datos agentes</h3>
+
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input required="" [(ngModel)]="agente.codigoAgente" class="mdl-textfield__input" type="text" id="codigoAgente" placeholder="Codigo Agente"/>
+          </div>
+
+          <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input required="" [(ngModel)]="agente.nombreAgente" class="mdl-textfield__input" type="text" id="nombreAgente" placeholder="Nombre Completo"/>
+          </div>
+
+          <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input required="" [(ngModel)]="agente.estado" class="mdl-textfield__input" type="text" id="estado" placeholder="Estado - Disponible"/>
+          </div>
+        </div>
+
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input required="" [(ngModel)]="agente.nombreCorto" class="mdl-textfield__input" type="text" id="nombreCorto" placeholder="Nombre Corto"/>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <label>Empresas</label>
+              <select id="s1" [(ngModel)]="agente.empresaId">
+                <option value=""></option>
+                <optgroup *ngFor="let cate of empresass">
+                <option>{{cate.nombre}}</option>
+                </optgroup>
+              </select>
+            </div>
+
+        </div>
+      </div>
+
+      <div *ngFor="let boton of info">
+        <button *ngIf="boton == 'Guardar'" (click)="saveAgente()" id="submit_button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Enviar
+        </button><br>
+        <button *ngIf="boton == 'Editar'" (click)="saveUpdate()" id="submit_button" class="btn btn-info">
+          Actualizar
+        </button>
+      </div>
+  </base-card-body>
+</base-card>
+</div>
+
+<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone">
+  <base-card>
+    <base-card-title>
+      <h1 class="mdl-card__title-text">Agentes registrados</h1>
+    </base-card-title>
+    <base-card-body class="no-padding">
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+          <th style="color:#ffff">Id</th>
+          <th style="color:#ffff">Empresa</th>
+          <th style="color:#ffff">Codigo Agente</th>
+          <th style="color:#ffff">Nombre</th>
+          <th style="color:#ffff">Estado</th>
+          <th style="color:#ffff">Fecha Creacion</th>
+          <th style="color:#ffff">Nombre Corto</th>
+          <th style="color:#ffff">Editar</th>
+          <th style="color:#ffff">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pro of agentess; let i = index">
+          <td style="color:#ffff">{{ pro._id }}</td>
+          <td style="color:#ffff">{{ pro.empresaId }}</td>
+          <td style="color:#ffff">{{ pro.codigoAgente}}</td>
+          <td style="color:#ffff">{{ pro.nombreAgente}}</td>
+          <td style="color:#ffff">{{ pro.estado }}</td>
+          <td style="color:#ffff">{{ pro.fechaCreacion }}</td>
+          <td style="color:#ffff">{{ pro.nombreCorto }}</td>
+          <td>
+          <button type="button" class="btn btn-info" (click)="seventhModal" (click)="onUpdate(pro)">Editar</button>
+          </td>
+          <td>
+          <button type="button" class="btn btn-danger" (click)="onDelete(pro._id)">Eliminar</button>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </base-card-body>
+  </base-card>
+</div>

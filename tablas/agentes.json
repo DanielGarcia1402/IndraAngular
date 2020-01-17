@@ -1,0 +1,11 @@
+{ 
+    "_id" : ObjectId("5e211eabdfad2a1e30ca9e41"), 
+    "nombreCorto" : "DSO", 
+    "fechaModificacion" : "16/02/20", 
+    "fechaCreacion" : ISODate("2020-01-17T02:40:43.623+0000"), 
+    "estado" : "Disponible", 
+    "nombreAgente" : "Daniela Sanchez", 
+    "codigoAgente" : "INDRA1402", 
+    "empresaId" : "1", 
+    "__v" : NumberInt(0)
+}
